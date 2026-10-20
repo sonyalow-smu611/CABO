@@ -1,0 +1,1 @@
+{"name":"@cabo/server","version":"0.0.0","type":"module","exports":"./src/rooms.ts","dependencies":{"@cabo/bots":"*","@cabo/engine":"*","socket.io":"^4.8.4"}}

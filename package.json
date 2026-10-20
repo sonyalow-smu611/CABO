@@ -1,0 +1,26 @@
+{
+  "name": "cabogame",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json && tsc -p packages/web",
+    "test": "node --test \"packages/*/test/*.test.ts\"",
+    "simulate": "node scripts/simulate.ts",
+    "dev:server": "node --watch packages/server/src/index.ts",
+    "dev:web": "npm run dev -w @cabo/web",
+    "start": "node packages/server/src/index.ts",
+    "build": "npm run build -w @cabo/web",
+    "test:web": "node --test \"packages/web/test/*.browser.ts\""
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "socket.io-client": "^4.8.4",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

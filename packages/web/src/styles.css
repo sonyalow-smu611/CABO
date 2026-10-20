@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/800.css";
+@import "@fontsource-variable/inter";
+
+/*
+ * Cabo design tokens. One theme: royal navy felt, black chrome, white cards, light grey for secondary text.
+ * Signal colours are used sparingly and only for their meaning:
+ *   gold = whose turn it is and the Cabo call · green = winners · red = paused, errors, failed match, destructive
+ *   royal (a brighter navy) = your selection while picking cards
+ * The shadcn-style names (--background, --primary, ...) let pasted shadcn / Magic UI / Aceternity components pick up the theme.
+ */
+:root {
+  /* palette */
+  --navy-950: #040a1c;
+  --navy-900: #081430;
+  --navy-800: #0c1d45;
+  --navy-700: #12285e; /* royal navy */
+  --navy-600: #1a3679;
+  --navy-500: #24479a;
+  --royal-500: #3b6cf0;
+  --royal-400: #6a90f5;
+  --black-950: #050608;
+  --black-900: #0b0d12;
+  --black-800: #13161d;
+  --black-700: #1d212b;
+  --grey-50: #f6f7f9;
+  --grey-100: #eceef2;
+  --grey-200: #d9dde5;
+  --grey-300: #bcc3cf;
+  --grey-400: #949dad;
+  --grey-500: #697284;
+  --gold-400: #f3c94a;
+  --gold-500: #e2b02a;
+  --green-400: #4ad68a;
+  --green-500: #2fbf71;
+  --red-400: #f0686c;
+  --red-500: #e5484d;
+
+  /* shadcn semantic names */
+  --background: var(--navy-950);
+  --foreground: var(--grey-50);
+  --card: var(--black-900);
+  --card-foreground: var(--grey-50);
+  --popover: var(--black-900);
+  --popover-foreground: var(--grey-50);
+  --primary: var(--grey-50);
+  --primary-foreground: var(--black-950);
+  --secondary: var(--black-700);
+  --secondary-foreground: var(--grey-50);
+  --muted: var(--black-800);
+  --muted-foreground: var(--grey-400);
+  --accent: var(--navy-600);
+  --accent-foreground: var(--grey-50);
+  --destructive: var(--red-500);
+  --destructive-foreground: var(--grey-50);
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.16);
+  --ring: var(--royal-400);
+  --radius: 0.75rem;
+
+  /* Cabo semantic names */
+  --felt: var(--navy-700);
+  --felt-deep: var(--navy-900);
+  --felt-rail: var(--black-950);
+  --chrome: var(--black-950);
+  --panel: var(--black-900);
+  --turn: var(--gold-400);
+  --turn-ink: var(--black-950);
+  --win: var(--green-400);
+  --danger: var(--red-500);
+  --select: var(--royal-500);
+  --face: #ffffff;
+  --face-ink: #12141a;
+  --face-red: #c81e2c;
+  --back: var(--navy-700);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-navy-500: var(--navy-500);
+  --color-royal-500: var(--royal-500);
+  --color-royal-400: var(--royal-400);
+  --color-ink-950: var(--black-950);
+  --color-ink-900: var(--black-900);
+  --color-ink-800: var(--black-800);
+  --color-ink-700: var(--black-700);
+  --color-grey-50: var(--grey-50);
+  --color-grey-100: var(--grey-100);
+  --color-grey-200: var(--grey-200);
+  --color-grey-300: var(--grey-300);
+  --color-grey-400: var(--grey-400);
+  --color-grey-500: var(--grey-500);
+
+  --color-felt: var(--felt);
+  --color-felt-deep: var(--felt-deep);
+  --color-chrome: var(--chrome);
+  --color-panel: var(--panel);
+  --color-turn: var(--turn);
+  --color-turn-ink: var(--turn-ink);
+  --color-win: var(--win);
+  --color-danger: var(--danger);
+  --color-select: var(--select);
+  --color-face: var(--face);
+  --color-face-ink: var(--face-ink);
+  --color-face-red: var(--face-red);
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 2px 4px rgb(0 0 0 / 0.35), 0 8px 18px -6px rgb(0 0 0 / 0.5);
+  --shadow-lift: 0 14px 28px -8px rgb(0 0 0 / 0.65);
+  --shadow-panel: 0 24px 60px -12px rgb(0 0 0 / 0.7), 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    font-variant-numeric: lining-nums; /* Playfair defaults to old-style figures */
+    -webkit-font-smoothing: antialiased;
+  }
+  button { cursor: pointer; }
+  button:disabled { cursor: default; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+}
+
+@layer components {
+  /* The table surface: royal navy lit from above, darker towards the rail, with a faint woven texture. */
+  .felt {
+    background-color: var(--felt-deep);
+    background-image:
+      repeating-linear-gradient(45deg, rgb(255 255 255 / 0.02) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(-45deg, rgb(0 0 0 / 0.06) 0 1px, transparent 1px 3px),
+      radial-gradient(ellipse 60% 50% at 50% 45%, rgb(255 255 255 / 0.08), transparent 70%),
+      radial-gradient(ellipse 90% 85% at 50% 48%, var(--felt) 0%, var(--navy-800) 55%, var(--felt-deep) 85%, var(--navy-950) 100%);
+  }
+  /* The oval edge of the table. */
+  .table-rail {
+    border-radius: 50%;
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.08),
+      inset 0 0 0 10px rgb(0 0 0 / 0.22),
+      inset 0 0 80px rgb(0 0 0 / 0.45);
+  }
+
+  /* Card back: royal navy with a fine white lattice inside a white border. */
+  .card-back {
+    background-color: var(--back);
+    background-image:
+      repeating-linear-gradient(45deg, rgb(255 255 255 / 0.16) 0 1px, transparent 1px 6px),
+      repeating-linear-gradient(-45deg, rgb(255 255 255 / 0.16) 0 1px, transparent 1px 6px),
+      radial-gradient(circle at 50% 50%, var(--navy-600), var(--navy-800));
+  }
+
+  .numerals { font-variant-numeric: lining-nums tabular-nums; }
+
+  /* The Cabo announcement: pops in, the gold bar runs down, and it fades just before it goes. */
+  .cabo-call { animation: cabo-fade 0.4s ease-in calc(var(--cabo-ms) - 0.4s) forwards; }
+  .cabo-pop { animation: cabo-pop 0.5s cubic-bezier(.2, 1.4, .4, 1); }
+  .cabo-timer { animation: cabo-timer var(--cabo-ms) linear forwards; }
+  /* A power's notice by the seat: the same pop, timer and fade, smaller and shorter. */
+  .action-notice { animation: cabo-pop 0.4s cubic-bezier(.2, 1.4, .4, 1), cabo-fade 0.3s ease-in calc(var(--action-ms) - 0.3s) forwards; }
+  .action-timer { animation: cabo-timer var(--action-ms) linear forwards; }
+  @media (prefers-reduced-motion: reduce) {
+    .cabo-pop { animation: none; }
+    .action-notice { animation: cabo-fade 0.3s ease-in calc(var(--action-ms) - 0.3s) forwards; }
+  }
+}
+
+@keyframes cabo-pop { from { opacity: 0; scale: 0.6; } to { opacity: 1; scale: 1; } }
+@keyframes cabo-timer { from { scale: 1 1; } to { scale: 0 1; } }
+@keyframes cabo-fade { to { opacity: 0; } }

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cabo</title>
+  <style>
+    :root { --bg: #f4f1ea; --ink: #1d1d1b; --muted: #6b675f; --line: #d6d0c4; --card: #fff; --accent: #2f5d50; --warn: #a33b2b; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #1b1c1a; --ink: #ecebe6; --muted: #9d9a92; --line: #3a3b37; --card: #262724; --accent: #7fb8a4; --warn: #e07a66; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.4 system-ui, sans-serif; }
+    main { max-width: 820px; margin: 0 auto; padding: 16px; }
+    h1 { font-size: 20px; margin: 0 0 12px; }
+    button { font: inherit; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); cursor: pointer; }
+    button:disabled { opacity: .45; cursor: default; }
+    button.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    select { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); }
+    input { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 8px 0; }
+    .actions { min-height: 36px; }
+    .hint { min-height: 1.4em; }
+    .muted { color: var(--muted); }
+    .error { color: var(--warn); }
+    .player { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin: 8px 0; }
+    .player.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .card { width: 52px; height: 72px; padding: 0; font-size: 18px; font-weight: 600; }
+    .card:disabled { opacity: 1; }
+    .card.known { background: var(--card); }
+    .card.hidden { background: repeating-linear-gradient(45deg, var(--line) 0 4px, transparent 4px 8px); color: var(--muted); }
+    .card.faceup { outline: 2px dashed var(--accent); }
+    .card.held { outline: 2px solid var(--accent); }
+    .card.picked { outline: 3px solid var(--warn); }
+    table.board { border-collapse: collapse; margin: 12px 0; }
+    .board th, .board td { text-align: left; padding: 4px 14px 4px 0; border-bottom: 1px solid var(--line); }
+    ul.log { padding-left: 18px; margin: 4px 0; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
